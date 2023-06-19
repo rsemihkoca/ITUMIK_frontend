@@ -1,4 +1,8 @@
 {
     "mainTitle": "Mustafa İnan Kütüphanesi’ne Hoş Geldiniz",
-	"mainCardDetails": "Detayları Gör"
+	"mainCardDetails": "Detayları Gör",
+    "floor0": "Zemin Kat",
+    "floor1": "1. Kat",
+    "floor2": "2. Kat",
+    "floor3": "3. Kat"
 }
