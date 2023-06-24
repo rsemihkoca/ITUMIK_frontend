@@ -60,5 +60,4 @@ export const MainPageCard = ({ title, percentage, floorId }) => {
       </div>
     </div>
   )
-
 }
