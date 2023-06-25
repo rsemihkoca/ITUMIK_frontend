@@ -40,7 +40,7 @@ export default function FloorsLayout({ children }) {
                 <button className={"text-white py-3 hover:bg-secondary/[0.7] duration-300 px-6 font-semibold rounded-t-lg " + (handle.id === '3' ? ' bg-secondary' : 'bg-secondary/[0.5]')}>{t('thirdFloor')}</button>
               </Link>
             </div>
-            <div className="rounded-tr-lg rounded-b-lg h-[100vw] sm:h-auto overflow-auto sm:rotate-0 -rotate-90 bg-[#002855]/[0.5] sm:pt-12 sm:pb-16">
+            <div className="rounded-tr-lg rounded-b-lg overflow-auto  bg-[#002855]/[0.5] sm:pt-12 sm:pb-16">
               {children}
             </div>
           </div>
