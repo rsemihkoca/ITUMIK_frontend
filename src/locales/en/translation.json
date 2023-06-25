@@ -1,4 +1,9 @@
 {
     "mainTitle": "Welcome to Mustafa İnan Library",
-	"mainCardDetails": "See Details"
+	"mainCardDetails": "See Details",
+    "goBackButton": "Go Back",
+    "entrance": "Entrance",
+    "firstFloor": "First Floor",
+    "secondFloor": "Second Floor",
+    "thirdFloor": "Third Floor"
 }

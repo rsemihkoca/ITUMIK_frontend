@@ -9,17 +9,20 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url("./assets/images/main-bg.png");
+  background-image: url("./../public/images/main-bg.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+  overflow: hidden;
+}
+body>*{
+  overflow: auto;
 }
 .bg{
-  background-image: url("./assets/images/main-bg.png");
+  background-image: url("./../public/images/main-bg.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
-
