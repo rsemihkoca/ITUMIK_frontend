@@ -13,9 +13,8 @@ module.exports = {
         dark_blue: '#0011FF',
         section_dividing_blue: '#404DC3',
         section_dividing_red: '#F45555',
-        light_green: '#62DB58'
-
-
+        light_green: '#62DB58',
+        secondary: '#002855',
     },
   },
   plugins: [],

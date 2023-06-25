@@ -44,20 +44,41 @@ export const MainPageCard = ({ title, percentage, floorId }) => {
     round: true,
   };
   return (
-    // TODO: route eklenecek
-    <div onClick={()=>{}} className="rounded-2xl flex justify-between w-[90%] sm:w-auto sm:flex-col items-center bg-[#002855]/[0.5] sm:bg-white/[0.2] py-7 gap-y-4 sm:gap-y-12 px-8 sm:px-12">
-      <div className="text-white font-bold text-xl sm:text-2xl">
-        <h3>{title}</h3>
+    <>
+      {/* ////// mobile card */}
+      <Link className="w-[90%] sm:hidden sm:w-auto" to={`/floors?id=${floorId}`}>
+        <div className="rounded-2xl flex justify-between  sm:flex-col items-center bg-[#002855]/[0.5] sm:bg-white/[0.2] py-7 gap-y-4 sm:gap-y-12 px-8 sm:px-12">
+          <div className="text-white font-bold text-xl sm:text-2xl">
+            <h3>{title}</h3>
+          </div>
+          <div className="hidden sm:block">
+            <CircularProgressBar {...props} />
+          </div>
+          <div className="sm:hidden">
+            <CircularProgressBar {...mobileProps} />
+          </div>
+          <div className="hidden sm:block">
+            <button className="text-white py-2 px-4 bg-white/[0.2] font-semibold rounded-xl">{t('mainCardDetails')}</button>
+          </div>
+        </div>
+      </Link>
+      {/* ///////desktop card */}
+      <div className="rounded-2xl hidden sm:flex w-[90%] sm:w-auto justify-between  sm:flex-col items-center bg-[#002855]/[0.5] sm:bg-white/[0.2] py-7 gap-y-4 sm:gap-y-12 px-8 sm:px-12">
+        <div className="text-white font-bold text-xl sm:text-2xl">
+          <h3>{title}</h3>
+        </div>
+        <div className="hidden sm:block">
+          <CircularProgressBar {...props} />
+        </div>
+        <div className="sm:hidden">
+          <CircularProgressBar {...mobileProps} />
+        </div>
+        <div className="hidden sm:block">
+          <Link className="" to={{ pathname: `/floors/${floorId}` }}>
+            <button className="text-white py-2 px-4 bg-white/[0.2] font-semibold rounded-xl">{t('mainCardDetails')}</button>
+          </Link>
+        </div>
       </div>
-      <div className="hidden sm:block">
-        <CircularProgressBar {...props} />
-      </div>
-      <div className="sm:hidden">
-        <CircularProgressBar {...mobileProps} />
-      </div>
-      <div className="hidden sm:block">
-        <button className="text-white py-2 px-4 bg-white/[0.2] font-semibold rounded-xl">{t('mainCardDetails')}</button>
-      </div>
-    </div>
+    </>
   )
 }
