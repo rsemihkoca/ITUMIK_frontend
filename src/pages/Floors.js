@@ -21,8 +21,7 @@ export const Floors = () => {
       {floor === 0 &&
         <div className="h-full px-4 grid grid-cols-12 grid-rows-6 min-w-[600px] sm:min-w-[1200px]">
           <img src={danisma} className="col-span-1 col-start-1 col-end-1 row-span-4" />
-          <Table className=''  />
-          <Table className=''  />
+          <Table className=' col-start-3'  />
           <Table className=''  />
           <Table className=''  />
           <Table className=''  />

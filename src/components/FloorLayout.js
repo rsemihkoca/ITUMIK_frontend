@@ -16,12 +16,14 @@ export default function FloorsLayout({ children }) {
     <div className="h-screen">
       <div className="max-h-screen">
         <div className="container mx-auto">
-          <div className="text-white font-semibold">
-            <button> {t('goBackButton')} </button>
-          </div>
-          <div className="justify-end flex items-center gap-x-2 mt-8">
-            <span onClick={() => { changeLanguageHandler('tr') }} ><img width="50" src={TrFlag}></img></span>
-            <span onClick={() => { changeLanguageHandler('en') }} ><img width="50" src={EnFlag}></img></span>
+          <div className="flex justify-between items-center my-3">
+            <div className="text-secondar text-lg font-semibold">
+              <button> {'<'}{' '}{t('goBackButton')} </button>
+            </div>
+            <div className="justify-end flex items-center gap-x-2">
+              <span onClick={() => { changeLanguageHandler('tr') }} ><img width="50" src={TrFlag}></img></span>
+              <span onClick={() => { changeLanguageHandler('en') }} ><img width="50" src={EnFlag}></img></span>
+            </div>
           </div>
           <div className="">
             <div className="flex items-center">
