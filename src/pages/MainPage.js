@@ -3,6 +3,7 @@ import { MainPageCard } from "../components/main-card";
 import TrFlag from '../assets/images/tr-flag.png';
 import EnFlag from '../assets/images/en-flag.png';
 import ItuLogo from "../assets/images/itu-logo250-beyaz.png"
+import { Link, useParams } from "react-router-dom";
 
 export default function MainPage() {
   const { t, i18n } = useTranslation()
@@ -19,6 +20,11 @@ export default function MainPage() {
           <div className="justify-end flex items-center gap-x-2 mt-4 mb-2 mr-4">
             <span className="cursor-pointer" onClick={() => { changeLanguageHandler('tr') }} ><img width="50" src={TrFlag}></img></span>
             <span className="cursor-pointer" onClick={() => { changeLanguageHandler('en') }} ><img width="50" src={EnFlag}></img></span>
+          </div>
+          <div className="hidden sm:block">
+            <Link className="" to={`/healthPage/0`}>
+              <button className="text-white py-2 px-4 bg-white/[0.2] font-semibold rounded-xl">Health Page</button>
+            </Link>
           </div>
           <div className="2xl:h-[95vh] flex 2xl:items-center">
             <div className="w-full rounded-2xl bg-[#002855]/[0.5] sm:pt-12 sm:pb-8">
