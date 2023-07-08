@@ -30,10 +30,10 @@ export const MainPageCard = ({ title, percentage, floorId }) => {
     fontSize: "1.2rem",
     colorCircle: '#738DB5',
     fontWeight: 400,
-    size: 130,
+    size: 120,
     stroke: 15,
     strokeBottom: 15,
-    speed: 60,
+    speed: 55,
     cut: 0.001,
     rotation: -90,
     unit: "%",
@@ -47,7 +47,7 @@ export const MainPageCard = ({ title, percentage, floorId }) => {
     <>
       {/* ////// mobile card */}
       <Link className="w-[90%] sm:hidden sm:w-auto" to={`/floors/${floorId}`}>
-        <div className="rounded-2xl flex justify-between  sm:flex-col items-center bg-[#002855]/[0.5] sm:bg-white/[0.2] py-7 gap-y-4 sm:gap-y-12 px-8 sm:px-12">
+        <div className="rounded-2xl flex justify-between  sm:flex-col items-center bg-white/[0.2] py-7 gap-y-4 sm:gap-y-12 px-8 sm:px-12">
           <div className="text-white font-bold text-xl sm:text-2xl">
             <h3>{title}</h3>
           </div>
@@ -63,7 +63,7 @@ export const MainPageCard = ({ title, percentage, floorId }) => {
         </div>
       </Link>
       {/* ///////desktop card */}
-      <div className="rounded-2xl hidden sm:flex w-[90%] sm:w-auto justify-between  sm:flex-col items-center bg-[#002855]/[0.5] sm:bg-white/[0.2] py-7 gap-y-4 sm:gap-y-12 px-8 sm:px-12">
+      <div className="rounded-2xl hidden sm:flex w-[90%] sm:w-auto justify-between  sm:flex-col items-center bg-white/[0.2] py-7 gap-y-4 sm:gap-y-12 px-8 sm:px-12">
         <div className="text-white font-bold text-xl sm:text-2xl">
           <h3>{title}</h3>
         </div>

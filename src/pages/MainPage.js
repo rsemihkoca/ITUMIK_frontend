@@ -20,8 +20,8 @@ export default function MainPage() {
             <span className="cursor-pointer" onClick={() => { changeLanguageHandler('tr') }} ><img width="50" src={TrFlag}></img></span>
             <span className="cursor-pointer" onClick={() => { changeLanguageHandler('en') }} ><img width="50" src={EnFlag}></img></span>
           </div>
-          <div className="2xl:h-[95vh] flex 2xl:items-center">
-            <div className="w-full rounded-2xl bg-[#002855]/[0.5] sm:pt-12 sm:pb-8">
+          <div className="2xl:h-[95vh] flex 2xl:items-center pb-28 sm:pb-10">
+            <div className="w-full rounded-2xl bg-[#002855]/[0.5] sm:pt-12 pb-8">
               <div className="hidden sm:flex flex-col items-center justify-center">
                 <img className=" h-[65px] sm:h-[90px]" src={ItuLogo}></img>
               </div>
