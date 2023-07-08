@@ -20,7 +20,7 @@ export const Floors = () => {
   return (
     <FloorsLayout>
       {floor === 0 &&
-        <div className="floor mx-4 rounded-xl pt-8">
+        <div className="floor mx-4 rounded-xl pt-8  min-w-[200vw] sm:min-w-[1200px] my-8 sm:my-0">
           <div className="flex justify-center gap-16">
             <img width={66} src={bookshelfFront} className="col-span-1 col-start-1 col-end-1 row-span-4" />
             <img width={66} src={bookshelfFront} className="col-span-1 col-start-1 col-end-1 row-span-4" />
@@ -29,7 +29,7 @@ export const Floors = () => {
             <img width={66} src={bookshelfFront} className="col-span-1 col-start-1 col-end-1 row-span-4" />
             <img width={66} src={bookshelfFront} className="col-span-1 col-start-1 col-end-1 row-span-4" />
           </div>
-          <div className="h-full px-4 grid grid-cols-12 grid-rows-5 min-w-[1200px] py-4">
+          <div className="h-full px-4 grid grid-cols-12 grid-rows-5  min-w-[200vw] sm:min-w-[1200px] ">
             <div className="col-span-1 col-start-1 col-end-1 row-span-4 flex items-center">
               <img src={chair} className="h-[67px] mt-12" />
               <div className="relative">
@@ -43,13 +43,10 @@ export const Floors = () => {
             <Table className='' />
             <Table className='' />
             <Table className='' />
-            <div className="flex justify-between items-center row-span-4">
+            <div className="flex justify-around items-center row-span-4">
               <img src={library} className="hidden h-28 sm:block" />
               <img src={library} className="hidden h-28 sm:block" />
-              <img src={library} className="hidden h-28 sm:block" />
-              <img src={library} className="hidden h-28 sm:block" />
-              <img src={mobileLibrary} className="sm:hidden" />
-              <img src={mobileLibrary} className="sm:hidden" />
+              <img src={library} className=" h-28 sm:block" />
             </div>
             <Table className='' />
             <Table className='' />

@@ -16,10 +16,12 @@ body {
   background-attachment: fixed;
   overflow: hidden;
 }
-body>*{
+
+body>* {
   overflow: auto;
 }
-.bg{
+
+.bg {
   background-image: url("./assets/images/main-bg.png");
   background-position: center;
   background-repeat: no-repeat;
@@ -27,6 +29,10 @@ body>*{
   background-attachment: fixed;
 }
 
-.floor{
+.floor {
   background-image: url("./assets/images/background.png");
+}
+
+.slide-current p {
+  scale: 1.3;
 }
