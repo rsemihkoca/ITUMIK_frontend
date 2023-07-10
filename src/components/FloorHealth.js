@@ -1,5 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { t } from "i18next";
 
 export default function FloorHealth({ children }) {
   const handle = useParams()
@@ -10,7 +11,7 @@ export default function FloorHealth({ children }) {
         <div className="container mx-auto px-5">
           <div className="flex justify-between items-center my-3">
             <Link to={'/'} className="text-secondar text-lg font-semibold">
-              <button> {'<'}{' '}Go Back Button </button>
+              <button> {'<'}{' '}{t('goBackButton')}</button>
             </Link>
           </div>
           <div className="flex flex-col h-full">
@@ -30,7 +31,7 @@ export default function FloorHealth({ children }) {
                 </Link>
             </div>
             <hr className="max-w-[502px]"/>
-            <div className="overflow-auto  bg-[#002855]/[0.5] sm:pt-12 sm:pb-16 max-w-[502px] flex-grow">
+            <div className="overflow-auto  bg-[#002855]/[0.5] sm:pt-12 sm:pb-16 max-w-[700px] flex-grow">
               {children}
             </div>
           </div>
