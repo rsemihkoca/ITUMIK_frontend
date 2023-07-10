@@ -5,17 +5,19 @@ const Table = ({ doubleChair = false, c1 = false, c2 = false, c3 = false, c4 = f
 
   return (
     <>
-      {!doubleChair ? <div className={'flex justify-center items-start p-1 ' + (turn ? ' rotate-90 ' : ' ') + className}>
+      {!doubleChair ? <div className={'flex justify-center items-center p-1 ' + (turn ? ' rotate-90 ' : ' ') + className}>
         <div className='relative'>
-          <img className='absolute top-6' src={c2 ? fullChair : freeChair} alt="Top left chair" />
-          <img className=' ' src={c1 ? fullChair : freeChair} alt="Top right chair" />
+          <img className='absolute -right-[45%]' src={c2 ? fullChair : freeChair} alt="Top left chair" />
+          <img className='absolute top-[40%]  -right-[45%]' src={c1 ? fullChair : freeChair} alt="Top right chair" />
+          <img className='opacity-0' src={freeChair} alt="container chair" />
         </div>
-        <div className='mt-5'>
+        <div className='mt-5 z-10'>
           <img width={40} src={table} alt="Table" />
         </div>
         <div className='relative'>
-          <img src={c3 ? fullChair : freeChair} alt="Bottom left chair" style={{transform: 'rotateY(180deg)'}} />
-          <img className='absolute top-6' src={c4 ? fullChair : freeChair} alt="Bottom right chair" style={{transform: 'rotateY(180deg)'}} />
+          <img className='absolute  -left-[45%]' src={c3 ? fullChair : freeChair} alt="Bottom left chair" style={{ transform: 'rotateY(180deg)' }} />
+          <img className='absolute top-[40%] -left-[45%]' src={c4 ? fullChair : freeChair} alt="Bottom right chair" style={{ transform: 'rotateY(180deg)' }} />
+          <img className='opacity-0' src={freeChair} alt="container chair" />
         </div>
       </div> :
         <div className={'flex justify-center items-center p-1 ' + (turn ? ' rotate-90 ' : ' ') + className}>
@@ -26,7 +28,7 @@ const Table = ({ doubleChair = false, c1 = false, c2 = false, c3 = false, c4 = f
             <img className='h-14 mt-2' src={table} alt="Table" />
           </div>
           <div>
-            <img  src={c2 ? fullChair : freeChair} alt="Top left chair"style={{transform: 'rotateY(180deg)'}}  />
+            <img src={c2 ? fullChair : freeChair} alt="Top left chair" style={{ transform: 'rotateY(180deg)' }} />
           </div>
         </div>
       }
