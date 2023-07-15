@@ -6,6 +6,7 @@ import bookshelfFront from '../assets/icons/bookshelt-front.png'
 import library from '../assets/icons/bookshelf.png'
 import table from '../assets/icons/table.png'
 import chair from '../assets/icons/freeChair.svg'
+import clock from '../assets/gif/Saat.gif'
 import { useTranslation } from "react-i18next"
 import mobileLibrary from '../assets/icons/mobileLibrary.svg'
 export const Floors = () => {
@@ -20,14 +21,15 @@ export const Floors = () => {
   return (
     <FloorsLayout>
       {floor === 0 &&
-        <div className="floor mx-4 rounded-xl pt-8  min-w-[200vw] sm:min-w-[1200px] my-8 sm:my-0">
-          <div className="flex justify-center gap-16">
-            <img width={66} src={bookshelfFront} className="col-span-1 col-start-1 col-end-1 row-span-4" />
-            <img width={66} src={bookshelfFront} className="col-span-1 col-start-1 col-end-1 row-span-4" />
-            <img width={66} src={bookshelfFront} className="col-span-1 col-start-1 col-end-1 row-span-4" />
-            <img width={66} src={bookshelfFront} className="col-span-1 col-start-1 col-end-1 row-span-4" />
-            <img width={66} src={bookshelfFront} className="col-span-1 col-start-1 col-end-1 row-span-4" />
-            <img width={66} src={bookshelfFront} className="col-span-1 col-start-1 col-end-1 row-span-4" />
+        <div className="floor mx-4 rounded-xl pt-2 sm:pt-8  min-w-[200vw] sm:min-w-[1200px] my-8 sm:my-0">
+          <div className="flex justify-center gap-4 sm:gap-16">
+            <img src={bookshelfFront} className="sm:w-16 w-12 col-span-1 col-start-1 col-end-1 row-span-4" />
+            <img src={bookshelfFront} className="sm:w-16 w-12 col-span-1 col-start-1 col-end-1 row-span-4" />
+            <img src={bookshelfFront} className="sm:w-16 w-12 col-span-1 col-start-1 col-end-1 row-span-4" />
+            <img src={clock} className="sm:w-16 w-12 col-span-1 col-start-1 col-end-1 row-span-4" />
+            <img src={bookshelfFront} className="sm:w-16 w-12 col-span-1 col-start-1 col-end-1 row-span-4" />
+            <img src={bookshelfFront} className="sm:w-16 w-12 col-span-1 col-start-1 col-end-1 row-span-4" />
+            <img src={bookshelfFront} className="sm:w-16 w-12 col-span-1 col-start-1 col-end-1 row-span-4" />
           </div>
           <div className="h-full px-4 grid grid-cols-12 grid-rows-5  min-w-[200vw] sm:min-w-[1200px] ">
             <div className="col-span-1 col-start-1 col-end-1 row-span-4 flex items-center">
