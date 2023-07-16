@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom"
 import FloorsLayout from "../components/FloorLayout"
 import { useEffect, useState } from "react"
 import Table from "../components/table"
-import bookshelfFront from '../assets/icons/bookshelt-front.png'
+import bookshelfFront from '../assets/icons/bookshelfLight.png'
 import library from '../assets/icons/bookshelf.png'
 import table from '../assets/icons/table.png'
 import chair from '../assets/icons/freeChair.svg'
