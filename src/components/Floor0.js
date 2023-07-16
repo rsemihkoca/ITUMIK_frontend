@@ -7,15 +7,17 @@ import clock from '../assets/gif/Saat.gif'
 
 export const Floor0 = () => {
   return (
-    <div className="floor mx-4 rounded-xl pt-6 sm:pt-8  min-w-[240vw] sm:min-w-[1200px] my-8 sm:my-0">
-      <div className="flex justify-center gap-4 sm:gap-16">
-        <img src={bookshelfFront} className="sm:w-20 w-16 col-span-1 col-start-1 col-end-1 row-span-4" />
-        <img src={bookshelfFront} className="sm:w-20 w-16 col-span-1 col-start-1 col-end-1 row-span-4" />
-        <img src={bookshelfFront} className="sm:w-20 w-16 col-span-1 col-start-1 col-end-1 row-span-4" />
-        <img src={clock} className="sm:w-20 w-16 col-span-1 col-start-1 col-end-1 row-span-4" />
-        <img src={bookshelfFront} className="sm:w-20 w-16 col-span-1 col-start-1 col-end-1 row-span-4" />
-        <img src={bookshelfFront} className="sm:w-20 w-16 col-span-1 col-start-1 col-end-1 row-span-4" />
-        <img src={bookshelfFront} className="sm:w-20 w-16 col-span-1 col-start-1 col-end-1 row-span-4" />
+    <div className="floor mx-4 rounded-xl relative  min-w-[240vw] sm:min-w-[1200px] my-8 sm:my-0">
+      <div className="w-full wall z-10 h-[70px] rounded-t-xl sm:h-[88px] absolute top-0 left-0">
+      </div>
+      <div className="z-20 pt-6 sm:pt-8 flex justify-center gap-4 sm:gap-16">
+        <img src={bookshelfFront} className="sm:w-20 w-16 col-span-1 col-start-1 col-end-1 row-span-4 z-20" />
+        <img src={bookshelfFront} className="sm:w-20 w-16 col-span-1 col-start-1 col-end-1 row-span-4 z-20" />
+        <img src={bookshelfFront} className="sm:w-20 w-16 col-span-1 col-start-1 col-end-1 row-span-4 z-20" />
+        <img src={clock} className="sm:w-20 w-16 col-span-1 col-start-1 col-end-1 row-span-4 z-20" />
+        <img src={bookshelfFront} className="sm:w-20 w-16 col-span-1 col-start-1 col-end-1 row-span-4 z-20" />
+        <img src={bookshelfFront} className="sm:w-20 w-16 col-span-1 col-start-1 col-end-1 row-span-4 z-20" />
+        <img src={bookshelfFront} className="sm:w-20 w-16 col-span-1 col-start-1 col-end-1 row-span-4 z-20" />
       </div>
       <div className="h-full px-4 grid grid-cols-11 grid-rows-4 pb-5  min-w-[200vw] sm:min-w-[1200px] ">
         {/* <div className="col-span-1 col-start-1 col-end-1 row-span-4 flex items-center">

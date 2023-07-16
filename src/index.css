@@ -36,3 +36,8 @@ body>* {
 .slide-current p {
   scale: 1.3;
 }
+
+.wall {
+  background-image: url("./assets/images/wall.png");
+  background-repeat: repeat;
+}
