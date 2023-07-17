@@ -35,12 +35,12 @@ export const Floor0 = () => {
         <Table className='' />
         <div className="flex justify-around items-center row-span-3">
           <div className="flex-col h-full py-8 justify-start relative flex ">
-            <img src={bookshelfSide} className=" sm:w-5 " />
-            <img src={bookshelfSide} className=" translate-y-3/4 absolute sm:w-5 " />
+            <img src={bookshelfSide} className="  w-4 sm:w-5 " />
+            <img src={bookshelfSide} className=" translate-y-3/4 absolute  w-4 sm:w-5 " />
           </div>
           <div className=" flex-col h-full py-8 justify-start relative flex">
-            <img src={bookshelfSide} className=" sm:w-5" />
-            <img src={bookshelfSide} className=" translate-y-3/4 absolute sm:w-5" />
+            <img src={bookshelfSide} className=" w-4 sm:w-5" />
+            <img src={bookshelfSide} className=" translate-y-3/4 absolute  w-4 sm:w-5" />
           </div>
           <div className=" flex-col h-full py-8 justify-start relative hidden sm:flex">
             <img src={bookshelfSide} className=" sm:w-5" />
