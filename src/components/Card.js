@@ -1,12 +1,23 @@
+import React from "react";
 import { CircularProgressBar } from "@tomickigrzegorz/react-circular-progress-bar";
 import { t } from "i18next";
 import { Link } from "react-router-dom";
 
+const SliceColor = (val) => {
+  switch (val) {
+    case val > 80:
+      return "#EC3919";
+    case val > 60:
+      return "#FFA500";
+    default:
+      return "#00FF00";
+  }
+};
+
 export default function MainPageCard({ title, percentage, floorId }) {
   const returnProps = (mobile = false) => ({
     percent: percentage, // is require
-    colorSlice:
-      percentage > 80 ? "#EC3919" : percentage > 60 ? "#FFA500" : "#00FF00",
+    colorSlice: SliceColor(percentage),
     fontColor: "#fff",
     fontSize: "1.2rem",
     colorCircle: "#738DB5",
@@ -40,7 +51,10 @@ export default function MainPageCard({ title, percentage, floorId }) {
             <CircularProgressBar {...returnProps(true)} />
           </div>
           <div className="hidden sm:block">
-            <button className="text-white py-2 px-4 bg-white/[0.2] font-semibold rounded-xl">
+            <button
+              className="text-white py-2 px-4 bg-white/[0.2] font-semibold rounded-xl"
+              type="button"
+            >
               {t("mainCardDetails")}
             </button>
           </div>
@@ -59,7 +73,10 @@ export default function MainPageCard({ title, percentage, floorId }) {
         </div>
         <div className="hidden sm:block">
           <Link className="" to={{ pathname: `/floors/${floorId}` }}>
-            <button className="text-white py-2 px-4 bg-white/[0.2] font-semibold rounded-xl">
+            <button
+              className="text-white py-2 px-4 bg-white/[0.2] font-semibold rounded-xl"
+              type="button"
+            >
               {t("mainCardDetails")}
             </button>
           </Link>

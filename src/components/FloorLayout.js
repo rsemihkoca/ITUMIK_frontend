@@ -1,3 +1,4 @@
+import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useParams } from "react-router-dom";
 
@@ -17,8 +18,8 @@ export default function FloorsLayout({ children }) {
       <div className="max-h-screen">
         <div className="container mx-auto">
           <div className="flex justify-between items-center my-3">
-            <Link to={"/"} className="text-secondar text-lg font-semibold">
-              <button>
+            <Link to="/" className="text-secondar text-lg font-semibold">
+              <button type="button">
                 {" "}
                 {"<"} {t("goBackButton")}{" "}
               </button>
@@ -29,13 +30,16 @@ export default function FloorsLayout({ children }) {
                 onClick={() => {
                   changeLanguageHandler("tr");
                 }}
+                aria-hidden
               >
                 <img width="50" src={TRFlag} alt="" />
               </span>
               <span
+                className="cursor-pointer"
                 onClick={() => {
                   changeLanguageHandler("en");
                 }}
+                aria-hidden
               >
                 <img width="50" src={ENFlag} alt="" />
               </span>
@@ -43,44 +47,48 @@ export default function FloorsLayout({ children }) {
           </div>
           <div className="">
             <div className="flex items-center">
-              <Link to={`/floors/0`}>
+              <Link to="/floors/0">
                 <button
-                  className={
-                    "text-white py-3 hover:bg-secondary/[0.7] duration-300 px-6 font-semibold rounded-t-lg " +
-                    (handle.id === "0"
-                      ? " bg-secondary "
-                      : "bg-secondary/[0.5]")
-                  }
+                  type="button"
+                  className={`
+                    text-white py-3 hover:bg-secondary/[0.7] duration-300 px-6 font-semibold rounded-t-lg ${
+                      handle.id === "0"
+                        ? " bg-secondary "
+                        : "bg-secondary/[0.5]"
+                    }`}
                 >
                   {t("entrance")}
                 </button>
               </Link>
-              <Link to={`/floors/1`}>
+              <Link to="/floors/1">
                 <button
-                  className={
-                    "text-white py-3 hover:bg-secondary/[0.7] duration-300 px-6 font-semibold rounded-t-lg " +
-                    (handle.id === "1" ? " bg-secondary" : "bg-secondary/[0.5]")
-                  }
+                  type="button"
+                  className={`
+                  text-white py-3 hover:bg-secondary/[0.7] duration-300 px-6 font-semibold rounded-t-lg ${
+                    handle.id === "1" ? " bg-secondary " : "bg-secondary/[0.5]"
+                  }`}
                 >
                   {t("firstFloor")}
                 </button>
               </Link>
-              <Link to={`/floors/2`}>
+              <Link to="/floors/2">
                 <button
-                  className={
-                    "text-white py-3 hover:bg-secondary/[0.7] duration-300 px-6 font-semibold rounded-t-lg " +
-                    (handle.id === "2" ? " bg-secondary" : "bg-secondary/[0.5]")
-                  }
+                  type="button"
+                  className={`
+                  text-white py-3 hover:bg-secondary/[0.7] duration-300 px-6 font-semibold rounded-t-lg ${
+                    handle.id === "2" ? " bg-secondary " : "bg-secondary/[0.5]"
+                  }`}
                 >
                   {t("secondFloor")}
                 </button>
               </Link>
-              <Link to={`/floors/3`}>
+              <Link to="/floors/3">
                 <button
-                  className={
-                    "text-white py-3 hover:bg-secondary/[0.7] duration-300 px-6 font-semibold rounded-t-lg " +
-                    (handle.id === "3" ? " bg-secondary" : "bg-secondary/[0.5]")
-                  }
+                  type="button"
+                  className={`
+                  text-white py-3 hover:bg-secondary/[0.7] duration-300 px-6 font-semibold rounded-t-lg ${
+                    handle.id === "3" ? " bg-secondary " : "bg-secondary/[0.5]"
+                  }`}
                 >
                   {t("thirdFloor")}
                 </button>

@@ -1,3 +1,4 @@
+import React from "react";
 import { useTranslation } from "react-i18next";
 
 // Import Components
@@ -27,6 +28,7 @@ export default function Homepage() {
               onClick={() => {
                 changeLanguageHandler("tr");
               }}
+              aria-hidden
             />
             <img
               width="50"
@@ -36,6 +38,7 @@ export default function Homepage() {
               onClick={() => {
                 changeLanguageHandler("en");
               }}
+              aria-hidden
             />
           </div>
           <div className="2xl:h-[95vh] flex 2xl:items-center pb-28 sm:pb-10">

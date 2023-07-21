@@ -15,7 +15,7 @@ const resources = {
   },
 };
 
-//i18N Initialization
+// i18N Initialization
 i18n.use(initReactI18next).init({
   resources,
   lng: "tr",
