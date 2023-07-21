@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 import FloorsLayout from "../components/FloorLayout";
-import Table from "../components/table";
+import Table from "../components/Table";
 
 import danisma from "../assets/icons/danisma.svg";
 import library from "../assets/icons/library.svg";
@@ -25,54 +25,55 @@ export default function Floors() {
           <img
             src={danisma}
             className="col-span-1 col-start-1 col-end-1 row-span-4"
+            alt=""
           />
-          <Table className="" />
-          <Table className="" />
-          <Table className="" />
-          <Table className="" />
-          <Table className="" />
-          <Table className="" />
+          <Table />
+          <Table />
+          <Table />
+          <Table />
+          <Table />
+          <Table />
           <div className="flex justify-between row-span-4">
-            <img src={library} className="hidden sm:block" />
-            <img src={library} className="hidden sm:block" />
-            <img src={library} className="hidden sm:block" />
-            <img src={library} className="hidden sm:block" />
-            <img src={mobileLibrary} className="sm:hidden" />
-            <img src={mobileLibrary} className="sm:hidden" />
+            <img src={library} className="hidden sm:block" alt="" />
+            <img src={library} className="hidden sm:block" alt="" />
+            <img src={library} className="hidden sm:block" alt="" />
+            <img src={library} className="hidden sm:block" alt="" />
+            <img src={mobileLibrary} className="sm:hidden" alt="" />
+            <img src={mobileLibrary} className="sm:hidden" alt="" />
           </div>
-          <Table className="" />
-          <Table className="" />
-          <Table className="" />
-          <Table className="" />
-          <Table className="" />
-          <Table className="" />
-          <Table className="" />
-          <Table className="" />
-          <Table className="" />
-          <Table className="" />
-          <Table className="" />
-          <Table className="" />
-          <Table className="" />
-          <Table className="" />
-          <Table className=" col-start-3" />
-          <Table className="" />
-          <Table className="" />
-          <Table className="" />
-          <Table className="" />
-          <Table className="" />
-          <Table className="" />
-          <Table className="" />
-          <Table className="" />
+          <Table />
+          <Table />
+          <Table />
+          <Table />
+          <Table />
+          <Table />
+          <Table />
+          <Table />
+          <Table />
+          <Table />
+          <Table />
+          <Table />
+          <Table />
+          <Table />
+          <Table className="col-start-3" />
+          <Table />
+          <Table />
+          <Table />
+          <Table />
+          <Table />
+          <Table />
+          <Table />
+          <Table />
           <Table className="col-start-9" />
-          <Table className="" />
-          <Table className="" />
-          <Table className="" />
-          <Table doubleChair className=" col-start-5" />
-          <Table doubleChair className="" />
-          <Table doubleChair className="" />
-          <Table className="" />
+          <Table />
+          <Table />
+          <Table />
+          <Table doubleChair className="col-start-5" />
+          <Table doubleChair />
+          <Table doubleChair />
+          <Table />
           <div className="col-span-12 relative row-span-1 my-auto mx-auto">
-            <img src={window} className="" />
+            <img src={window} alt="" />
             <p className="top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 absolute">
               {t("window")}
             </p>
