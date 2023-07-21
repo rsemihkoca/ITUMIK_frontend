@@ -2,13 +2,14 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-import FloorsLayout from "../components/FloorLayout";
-import Table from "../components/Table";
+import { FloorsLayout, Table } from "../components/";
 
-import danisma from "../assets/icons/danisma.svg";
-import library from "../assets/icons/library.svg";
-import window from "../assets/icons/window.svg";
-import mobileLibrary from "../assets/icons/mobileLibrary.svg";
+import {
+  InformationDesk,
+  Library,
+  MobileLibrary,
+  Window,
+} from "../constants/Icons";
 
 export default function Floors() {
   const params = useParams();
@@ -23,7 +24,7 @@ export default function Floors() {
       {floor === 0 && (
         <div className="h-full px-4 grid grid-cols-12 grid-rows-6 min-w-[1200px] py-4">
           <img
-            src={danisma}
+            src={InformationDesk}
             className="col-span-1 col-start-1 col-end-1 row-span-4"
             alt=""
           />
@@ -34,12 +35,12 @@ export default function Floors() {
           <Table />
           <Table />
           <div className="flex justify-between row-span-4">
-            <img src={library} className="hidden sm:block" alt="" />
-            <img src={library} className="hidden sm:block" alt="" />
-            <img src={library} className="hidden sm:block" alt="" />
-            <img src={library} className="hidden sm:block" alt="" />
-            <img src={mobileLibrary} className="sm:hidden" alt="" />
-            <img src={mobileLibrary} className="sm:hidden" alt="" />
+            <img src={Library} className="hidden sm:block" alt="" />
+            <img src={Library} className="hidden sm:block" alt="" />
+            <img src={Library} className="hidden sm:block" alt="" />
+            <img src={Library} className="hidden sm:block" alt="" />
+            <img src={MobileLibrary} className="sm:hidden" alt="" />
+            <img src={MobileLibrary} className="sm:hidden" alt="" />
           </div>
           <Table />
           <Table />
@@ -73,7 +74,7 @@ export default function Floors() {
           <Table doubleChair />
           <Table />
           <div className="col-span-12 relative row-span-1 my-auto mx-auto">
-            <img src={window} alt="" />
+            <img src={Window} alt="" />
             <p className="top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 absolute">
               {t("window")}
             </p>

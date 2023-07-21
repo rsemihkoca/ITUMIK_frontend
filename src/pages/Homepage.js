@@ -4,9 +4,7 @@ import { useTranslation } from "react-i18next";
 import { MainPageCard } from "../components";
 
 // Import Images
-import TrFlag from "../assets/images/tr-flag.png";
-import EnFlag from "../assets/images/en-flag.png";
-import ItuLogo from "../assets/images/itu-logo250-beyaz.png";
+import { TRFlag, ENFlag, ITULogo } from "../constants/Images";
 
 export default function Homepage() {
   const { t, i18n } = useTranslation();
@@ -23,7 +21,7 @@ export default function Homepage() {
           <div className="justify-end flex items-center gap-x-2 mt-4 mb-2 mr-4">
             <img
               width="50"
-              src={TrFlag}
+              src={TRFlag}
               alt=""
               className="cursor-pointer"
               onClick={() => {
@@ -32,7 +30,7 @@ export default function Homepage() {
             />
             <img
               width="50"
-              src={EnFlag}
+              src={ENFlag}
               alt=""
               className="cursor-pointer"
               onClick={() => {
@@ -43,7 +41,7 @@ export default function Homepage() {
           <div className="2xl:h-[95vh] flex 2xl:items-center pb-28 sm:pb-10">
             <div className="w-full rounded-2xl bg-[#002855]/[0.5] sm:pt-12 pb-8">
               <div className="hidden sm:flex flex-col items-center justify-center">
-                <img className=" h-[65px] sm:h-[90px]" src={ItuLogo} alt="" />
+                <img className=" h-[65px] sm:h-[90px]" src={ITULogo} alt="" />
               </div>
               <div className="text-center font-semibold text-2xl px-2 sm:text-3xl text-white mt-8 mb-10">
                 <h1>{t("mainTitle")}</h1>

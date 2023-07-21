@@ -2,8 +2,7 @@ import { useTranslation } from "react-i18next";
 import { Link, useParams } from "react-router-dom";
 
 // Import Images
-import TrFlag from "../assets/images/tr-flag.png";
-import EnFlag from "../assets/images/en-flag.png";
+import { TRFlag, ENFlag } from "../constants/Images";
 
 export default function FloorsLayout({ children }) {
   const handle = useParams();
@@ -26,18 +25,19 @@ export default function FloorsLayout({ children }) {
             </Link>
             <div className="justify-end flex items-center gap-x-2">
               <span
+                className="cursor-pointer"
                 onClick={() => {
                   changeLanguageHandler("tr");
                 }}
               >
-                <img width="50" src={TrFlag} alt="" />
+                <img width="50" src={TRFlag} alt="" />
               </span>
               <span
                 onClick={() => {
                   changeLanguageHandler("en");
                 }}
               >
-                <img width="50" src={EnFlag} alt="" />
+                <img width="50" src={ENFlag} alt="" />
               </span>
             </div>
           </div>
