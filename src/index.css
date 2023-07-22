@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: url("./assets/images/main-bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  overflow: hidden;
+}
+
+body > * {
+  overflow: auto;
+}
+
+.bg {
+  background-image: url("./assets/images/main-bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.floor {
+  background-image: url("./assets/images/background.png");
+}
+
+.slide-current p {
+  scale: 1.3;
+}
+
+.wall {
+  background-image: url("./assets/images/wall.png");
+  background-repeat: repeat;
+}
