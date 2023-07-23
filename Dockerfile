@@ -7,7 +7,7 @@ COPY . .
 RUN npm run build
 
 # Stage 2: Create the production image
-FROM node:18.17.0-alpine3.17
+FROM node:18.17.0-alpine3.17 as runtime-image
 WORKDIR /app
 COPY --from=builder /app/dist ./dist
 RUN npm install -g live-server --production
