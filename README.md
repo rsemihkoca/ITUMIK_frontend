@@ -1,9 +1,28 @@
-# React + Vite
+# İTÜ Yazılım Kulübü
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Mustafa İnan Kütüphanesi Doluluk Oranı Projesi
 
-Currently, two official plugins are available:
+Projeyi başlatmak için [Node.js](https://nodejs.org/)'in kurulu olduğundan emin olun ve projeyi local'inize clone'layın. Bunu yapmak için aşağıdaki komutu kullanabilirsiniz.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```bash
+git clone https://github.com/rsemihkoca/ITUMIK_frontend.git
+```
 
+Ardından proje dizinine girip (cd ITUMIK_frontend) aşağıdaki komutu çalıştırın.
+
+```bash
+make
+```
+
+Tebrikler artık proje local'inizde çalışıyor. Tarayıcınıza _localhost:3000_ yazarak projeye ulaşabilirsiniz!
+
+### Troubleshooting
+
+**"make" komutu çalışmıyor?**
+
+Eğer windows işletim sisteminde çalışıyorsanız make komutu çalışmayabilir. Bunun yerine komutun yapacağı işlemleri kendiniz yapabilirsiniz. Lütfen proje dizininde aşağıdaki işlemleri sırasıyla yapın.
+
+```bash
+npm i
+npm run dev
+```
