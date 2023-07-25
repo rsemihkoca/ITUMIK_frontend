@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Floor0 } from "../components/Floor0";
 
-export const Floors = () => {
+const Floors = () => {
   const params = useParams();
   const [floor, setFloor] = useState();
 
