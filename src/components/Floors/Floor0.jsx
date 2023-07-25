@@ -1,9 +1,7 @@
-import { Table } from "../components";
-import bookshelfFront from "../assets/icons/bookshelfLight.png";
-import bookshelfSide from "../assets/icons/bookshelfSide.png";
-import clock from "../assets/gif/Saat.gif";
+import { Table } from "..";
+import { bookshelfFront, bookshelfSide, clock } from "../../constants/Images";
 
-export const Floor0 = () => {
+const Floor0 = () => {
   return (
     <div className="floor mx-4 rounded-xl relative  min-w-[240vw] sm:min-w-[1200px] my-8 sm:my-0">
       <div className="w-full wall z-10 h-[70px] rounded-t-xl sm:h-[88px] absolute top-0 left-0"></div>
@@ -52,25 +50,25 @@ export const Floor0 = () => {
         <Table />
         <Table />
         <div className="flex justify-around items-center row-span-3">
-          <div className="flex-col h-full py-8 justify-start relative flex ">
-            <img src={bookshelfSide} className="  w-4 sm:w-5 " />
+          <div className="flex-col h-full py-8 justify-start relative flex">
+            <img src={bookshelfSide} className="w-4 sm:w-5" />
             <img
               src={bookshelfSide}
-              className=" translate-y-3/4 absolute  w-4 sm:w-5 "
+              className="translate-y-3/4 absolute  w-4 sm:w-5"
             />
           </div>
-          <div className=" flex-col h-full py-8 justify-start relative flex">
-            <img src={bookshelfSide} className=" w-4 sm:w-5" />
+          <div className="flex-col h-full py-8 justify-start relative flex">
+            <img src={bookshelfSide} className="w-4 sm:w-5" />
             <img
               src={bookshelfSide}
-              className=" translate-y-3/4 absolute  w-4 sm:w-5"
+              className="translate-y-3/4 absolute  w-4 sm:w-5"
             />
           </div>
-          <div className=" flex-col h-full py-8 justify-start relative hidden sm:flex">
-            <img src={bookshelfSide} className=" sm:w-5" />
+          <div className="flex-col h-full py-8 justify-start relative hidden sm:flex">
+            <img src={bookshelfSide} className="sm:w-5" />
             <img
               src={bookshelfSide}
-              className=" translate-y-3/4 absolute sm:w-5 "
+              className="translate-y-3/4 absolute sm:w-5"
             />
           </div>
         </div>
@@ -88,7 +86,7 @@ export const Floor0 = () => {
         <Table />
         <Table />
         <Table />
-        <Table className=" col-start-2" />
+        <Table className="col-start-2" />
         <Table />
         <Table />
         <Table />
@@ -109,3 +107,5 @@ export const Floor0 = () => {
     </div>
   );
 };
+
+export default Floor0;
