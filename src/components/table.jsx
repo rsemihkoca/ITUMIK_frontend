@@ -22,14 +22,18 @@ const Table = ({
           } ${className}`}
         >
           <div className="flex">
-            <img src={c1 ? fullChair : freeChair} alt="Top right chair" />
+            <img
+              className="translate-x-[30%]"
+              src={c1 ? fullChair : freeChair}
+              alt="Top right chair"
+            />
           </div>
           <div className=" z-20">
             <img className="mt-2" src={tableSmall} alt="Table" />
           </div>
           <div className="flex">
             <img
-              className="translate-x-[70%] -translate-y-1 z-10 mirrorFreeChairBottom"
+              className="translate-x-[-30%] -scale-x-100 z-10 mirrorFreeChairBottom"
               src={c2 ? fullChair : freeChair}
               alt="Top left chair"
             />
