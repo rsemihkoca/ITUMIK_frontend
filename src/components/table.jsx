@@ -46,7 +46,7 @@ const Table = ({
   return (
     <>
       <div
-        className={`flex justify-center items-center p-1 ${
+        className={`flex justify-center items-center p-1 my-[-22px] ${
           turn && "rotate-90"
         } ${className}`}
       >
