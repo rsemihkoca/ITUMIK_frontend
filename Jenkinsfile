@@ -164,41 +164,43 @@ pipeline {
                     def manifestFile = "${manifestRepoFolderName}/${manifestFolder}/frontend-application.yaml"
                     def newImage = "${env.AUTHOR_LOGIN}/${env.REPO_FOLDER_NAME.toLowerCase()}:${env.DOCKER_TAG_NAME}"
 
-                    // Clone the manifests repository
-                    echo "Cloning manifests repository: ${manifestRepoURL}"
-                    sh "git clone ${manifestRepoURL} ${manifestRepoFolderName}"
+                    dir(manifestRepoFolderName) {
+                        // Clone the manifests repository
+                        echo "Cloning manifests repository: ${manifestRepoURL}"
+                        sh "git clone ${manifestRepoURL}"
 
-                    // Check if manifest file exists
-                    if (fileExists(manifestFile)) {
-                        echo "Updating manifest file with new image: ${newImage}"
+                        // Check if manifest file exists
+                        if (fileExists(manifestFile)) {
+                            echo "Updating manifest file with new image: ${newImage}"
 
-                        // Read the manifest file
-                        def manifestContent = readFile(manifestFile)
+                            // Read the manifest file
+                            def manifestContent = readFile(manifestFile)
 
-                        // Replace the old image with the new image
-                        manifestContent = manifestContent.replaceAll("${env.AUTHOR_LOGIN}/${env.REPO_FOLDER_NAME.toLowerCase()}:v[0-9\\\\.]+", newImage)
+                            // Replace the old image with the new image
+                            manifestContent = manifestContent.replaceAll("${env.AUTHOR_LOGIN}/${env.REPO_FOLDER_NAME.toLowerCase()}:v[0-9\\\\.]+", newImage)
 
-                        // Write the updated content back to the file
-                        writeFile(file: manifestFile, text: manifestContent)
+                            // Write the updated content back to the file
+                            writeFile(file: manifestFile, text: manifestContent)
 
-                        echo "Manifest file updated successfully."
+                            echo "Manifest file updated successfully."
 
-                        // Optional: Push changes back to the repository
-                        dir(manifestRepoFolderName) {
-                            withCredentials([sshUserPrivateKey(credentialsId: 'GITHUB_CREDENTIAL_ID', keyFileVariable: 'SSH_KEY')]) {
-                                // Set SSH key for Git
-                                sh '''
-                                    export GIT_SSH_COMMAND='ssh -i ${SSH_KEY}'
-                                    git config user.name ''' + "${AUTHOR_LOGIN}" + '''
-                                    git config user.email rsemihkoca@outlook.com
-                                    git add .
-                                    git commit -m "Update frontend-application.yaml with new image tag: ''' + "${newImage}" + '''"
-                                    git push git@github.com:''' + "${AUTHOR_LOGIN}/${manifestRepoFolderName}.git" + '''
-                                '''
+                            // Optional: Push changes back to the repository
+                            dir(manifestRepoFolderName) {
+                                withCredentials([sshUserPrivateKey(credentialsId: 'GITHUB_CREDENTIAL_ID', keyFileVariable: 'SSH_KEY')]) {
+                                    // Set SSH key for Git
+                                    sh '''
+                                        export GIT_SSH_COMMAND='ssh -i ${SSH_KEY}'
+                                        git config user.name ''' + "${AUTHOR_LOGIN}" + '''
+                                        git config user.email rsemihkoca@outlook.com
+                                        git add .
+                                        git commit -m "Update frontend-application.yaml with new image tag: ''' + "${newImage}" + '''"
+                                        git push git@github.com:''' + "${AUTHOR_LOGIN}/${manifestRepoFolderName}.git" + '''
+                                    '''
+                                }
                             }
+                        } else {
+                            error("Manifest file '${manifestFile}' does not exist.")
                         }
-                    } else {
-                        error("Manifest file '${manifestFile}' does not exist.")
                     }
                 }
             }
