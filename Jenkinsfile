@@ -185,7 +185,7 @@ pipeline {
 
                         // Optional: Push changes back to the repository
                         dir(manifestRepoFolderName) {
-                            withCredentials([usernamePassword(credentialsId: 'GITHUB_CREDENTIALS', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+                            withCredentials([usernamePassword(credentialsId: 'GITHUB_CREDENTIAL_ID', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
                                 sh """
                                     git config user.name "${AUTHOR_LOGIN}"
                                     git config user.email "rsemihkoca@outlook.com"
