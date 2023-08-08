@@ -154,36 +154,53 @@ pipeline {
             }
         }
 
+        stage('Update Manifests File') {
+            steps {
+                script {
+                    // Define manifest repo and folder details
+                    def manifestRepoURL = 'https://github.com/rsemihkoca/ITUMIK_manifests.git'
+                    def manifestRepoFolderName = 'ITUMIK_manifests'
+                    def manifestFolder = 'frontend'
+                    def manifestFile = "${manifestRepoFolderName}/${manifestFolder}/frontend-application.yaml"
+                    def newImage = "${env.AUTHOR_LOGIN}/${env.REPO_FOLDER_NAME.toLowerCase()}:${env.DOCKER_TAG_NAME}"
 
-//        stage('Generate Cobertura Report') {
-//            steps {
-//                echo 'Generating Cobertura Report...'
-//                dir(env.REPO_FOLDER_NAME) {
-//                    sh 'cobertura-report.sh'
-//                }
-//            }
-//        }
-//
-//        stage('Generate JUnit Report') {
-//            steps {
-//                echo 'Generating JUnit Report...'
-//                dir(env.REPO_FOLDER_NAME) {
-//                    sh 'junit-report.sh'
-//                }
-//            }
-//        }
+                    // Clone the manifests repository
+                    echo "Cloning manifests repository: ${manifestRepoURL}"
+                    sh "git clone ${manifestRepoURL} ${manifestRepoFolderName}"
 
-//        stage('Send Email Notification') {
-//            steps {
-//                echo 'Sending email notification...'
-//                emailext(
-//                    subject: "Pipeline Name: ${env.JOB_NAME} (Duration: ${currentBuild.durationString})",
-//                    body: "Build completed successfully! Here are the build details:",
-//                    to: 'rsemihkoca@outlook.com',
-//                    attachLog: true,
-//                    attachmentsPattern: 'reports/**/*'
-//                )
-//            }
-//        }
+                    // Check if manifest file exists
+                    if (fileExists(manifestFile)) {
+                        echo "Updating manifest file with new image: ${newImage}"
+
+                        // Read the manifest file
+                        def manifestContent = readFile(manifestFile)
+
+                        // Replace the old image with the new image
+                        manifestContent = manifestContent.replaceAll("${AUTHOR_LOGIN}/{env.REPO_FOLDER_NAME.toLowerCase()}:v[0-9\\.]+", newImage)
+
+                        // Write the updated content back to the file
+                        writeFile(file: manifestFile, text: manifestContent)
+
+                        echo "Manifest file updated successfully."
+
+                        // Optional: Push changes back to the repository
+                        dir(manifestRepoFolderName) {
+                            withCredentials([usernamePassword(credentialsId: 'GITHUB_CREDENTIALS', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+                                sh """
+                                    git config user.name "${AUTHOR_LOGIN}"
+                                    git config user.email "rsemihkoca@outlook.com"
+                                    git add .
+                                    git commit -m "Update frontend-application.yaml with new image tag: ${newImage}"
+                                    git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${AUTHOR_LOGIN}/${manifestRepoFolderName}.git
+                                """
+                            }
+                        }
+
+                    } else {
+                        error("Manifest file '${manifestFile}' does not exist.")
+                    }
+                }
+            }
+        }
     }
 }
