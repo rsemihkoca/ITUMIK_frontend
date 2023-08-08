@@ -190,11 +190,12 @@ pipeline {
                                 sh '''
                                     export GIT_SSH_COMMAND='ssh -i ${SSH_KEY}'
                                     git remote add origin git@github.com:''' + "${AUTHOR_LOGIN}/${manifestRepoFolderName}.git" + '''
+                                    git add remote -v
                                     git config user.name ''' + "${AUTHOR_LOGIN}" + '''
                                     git config user.email rsemihkoca@outlook.com
                                     git add .
                                     git commit -m "Update frontend-application.yaml with new image tag: ''' + "${newImage}" + '''"
-                                    git push git@github.com:''' + "${AUTHOR_LOGIN}/${manifestRepoFolderName}.git" + '''
+                                    git push origin main
                                 '''
                             }
                         }
