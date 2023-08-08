@@ -189,6 +189,7 @@ pipeline {
                                 // Set SSH key for Git
                                 sh '''
                                     export GIT_SSH_COMMAND='ssh -i ${SSH_KEY}'
+                                    git remote add origin git@github.com:''' + "${AUTHOR_LOGIN}/${manifestRepoFolderName}.git" + '''
                                     git config user.name ''' + "${AUTHOR_LOGIN}" + '''
                                     git config user.email rsemihkoca@outlook.com
                                     git add .
