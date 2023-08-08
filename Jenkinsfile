@@ -186,18 +186,16 @@ pipeline {
                         // Optional: Push changes back to the repository
                         dir(manifestRepoFolderName) {
                             withCredentials([sshUserPrivateKey(credentialsId: 'GITHUB_CREDENTIAL_ID', keyFileVariable: 'SSH_KEY')]) {
-                                sh """
-                                    // Set SSH key for Git
-                                    export GIT_SSH_COMMAND='ssh -i $SSH_KEY'
-                                    git config user.name "${AUTHOR_LOGIN}"
-                                    git config user.email "rsemihkoca@outlook.com"
+                                // Set SSH key for Git
+                                sh '''export GIT_SSH_COMMAND='ssh -i ' + SSH_KEY
+                                    git config user.name ''' + "${AUTHOR_LOGIN}" + '''
+                                    git config user.email rsemihkoca@outlook.com
                                     git add .
-                                    git commit -m "Update frontend-application.yaml with new image tag: ${newImage}"
-                                    git push git@github.com:${AUTHOR_LOGIN}/${manifestRepoFolderName}.git
-                                """
+                                    git commit -m "Update frontend-application.yaml with new image tag: ''' + "${newImage}" + '''"
+                                    git push git@github.com:''' + "${AUTHOR_LOGIN}/${manifestRepoFolderName}.git" + '''
+                                '''
                             }
                         }
-
                     } else {
                         error("Manifest file '${manifestFile}' does not exist.")
                     }
