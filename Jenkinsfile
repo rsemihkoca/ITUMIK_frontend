@@ -187,7 +187,7 @@ pipeline {
                         dir(manifestRepoFolderName) {
                             withCredentials([sshUserPrivateKey(credentialsId: 'GITHUB_CREDENTIAL_ID', keyFileVariable: 'SSH_KEY')]) {
                                 // Set SSH key for Git
-                                sh '''export GIT_SSH_COMMAND='ssh -i ' + SSH_KEY
+                                sh '''export GIT_SSH_COMMAND='ssh -i ' + '${SSH_KEY}'
                                     git config user.name ''' + "${AUTHOR_LOGIN}" + '''
                                     git config user.email rsemihkoca@outlook.com
                                     git add .
