@@ -176,7 +176,7 @@ pipeline {
                         def manifestContent = readFile(manifestFile)
 
                         // Replace the old image with the new image
-                        manifestContent = manifestContent.replaceAll("${AUTHOR_LOGIN}/{env.REPO_FOLDER_NAME.toLowerCase()}:v[0-9\\.]+", newImage)
+                        manifestContent = manifestContent.replaceAll("${env.AUTHOR_LOGIN}/${env.REPO_FOLDER_NAME.toLowerCase()}:v[0-9\\\\.]+", newImage)
 
                         // Write the updated content back to the file
                         writeFile(file: manifestFile, text: manifestContent)
