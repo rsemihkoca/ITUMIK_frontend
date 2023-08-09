@@ -184,6 +184,8 @@ pipeline {
 
                             // Optional: Push changes back to the repository
                             dir(manifestRepoFolderName) {
+                                sh "git config user.email rsemihkoca@outlook.com"
+                                sh "git config user.name rsemihkoca"
                                 sh "git remote set-url origin ${manifestRepoURL}"
                                 sh "git remote -v"
                                 sh "git add ."
