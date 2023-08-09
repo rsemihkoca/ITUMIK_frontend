@@ -193,7 +193,6 @@ pipeline {
                                 // Set SSH key for Git
                                 sh '''
                                     eval `ssh-agent -s`
-                                    ssh-add ${SSH_KEY}
                                     git remote -v
                                     export GIT_SSH_COMMAND='ssh -i ${SSH_KEY}'
                                     git remote set-url origin git@github.com:''' + "${AUTHOR_LOGIN}/${manifestRepoFolderName}.git" + '''
