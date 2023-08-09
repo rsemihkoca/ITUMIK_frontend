@@ -184,8 +184,6 @@ pipeline {
 
                             // Optional: Push changes back to the repository
                             dir(manifestRepoFolderName) {
-                                    // Set SSH key for Git
-                                    println ${SSH_KEY}
                                     sh '''
                                         git remote set-url origin ${manifestRepoURL}
                                         git remote -v
