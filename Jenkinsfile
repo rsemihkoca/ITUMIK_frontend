@@ -191,7 +191,17 @@ pipeline {
                                 sh "git remote -v"
                                 sh "git add ."
                                 sh "git commit -m 'Update frontend-application.yaml with new image tag: ${newImage}'"
-                                sh "git push origin main"
+
+                                // Use GIT_ASKPASS to provide the token instead of embedding in URL
+                                sh """
+                                   # Set up GIT_ASKPASS
+                                   echo '#!/bin/sh' > askpass.sh
+                                   echo 'echo \$GITHUB_TOKEN' >> askpass.sh
+                                   chmod +x askpass.sh
+                                   export GIT_ASKPASS="\$PWD/askpass.sh"
+
+                                   git push origin main
+                                """
                             }
 
                         } else {
