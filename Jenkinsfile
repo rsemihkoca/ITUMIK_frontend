@@ -102,7 +102,7 @@ pipeline {
 
                         // Change the current directory to the new directory
                         dir(env.REPO_FOLDER_NAME) {
-                            withCredentials([sshUserPrivateKey(credentialsId: 'GITHUB_CREDENTIAL_ID', keyFileVariable: 'KEY')]) {
+                            withCredentials([usernamePassword(credentialsId: 'GITHUB_CREDENTIAL_ID', usernameVariable: 'GITHUB_USER', passwordVariable: 'GITHUB_TOKEN')]) {
                                 checkout([
                                     $class: 'GitSCM',
                                     branches: [[name: "*/${env.BRANCH_NAME}"]],
@@ -164,7 +164,7 @@ pipeline {
                     def manifestFile = "${manifestRepoFolderName}/${manifestFolder}/frontend-application.yaml"
                     def newImage = "${env.AUTHOR_LOGIN}/${env.REPO_FOLDER_NAME.toLowerCase()}:${env.DOCKER_TAG_NAME}"
 
-                    withCredentials([usernamePassword(credentialsId: 'GITHUB_CREDENTIAL_ID2', usernameVariable: 'GITHUB_USER', passwordVariable: 'GITHUB_TOKEN')]) {
+                    withCredentials([usernamePassword(credentialsId: 'GITHUB_CREDENTIAL_ID', usernameVariable: 'GITHUB_USER', passwordVariable: 'GITHUB_TOKEN')]) {
 
                         println "GITHUB_USER: ${GITHUB_USER} GITHUB_TOKEN: ${GITHUB_TOKEN}"
                         sh "git clone ${manifestRepoURL}"
