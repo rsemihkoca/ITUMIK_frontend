@@ -187,13 +187,21 @@ pipeline {
                             dir(manifestRepoFolderName) {
                                 sh "git config user.email rsemihkoca@outlook.com"
                                 sh "git config user.name rsemihkoca"
+                                sh "git remote set-url origin ${manifestRepoURL}"
                                 sh "git remote -v"
                                 sh "git add ."
                                 sh "git commit -m '${newImage}: Update frontend-application.yaml with new image tag'"
-                                sh "git push ${manifestRepoURL} main"
 
                                 // Use GIT_ASKPASS to provide the token instead of embedding in URL
+                                sh """
+                                   # Set up GIT_ASKPASS
+                                   echo '#!/bin/sh' > askpass.sh
+                                   echo 'echo \$GITHUB_TOKEN' >> askpass.sh
+                                   chmod +x askpass.sh
+                                   export GIT_ASKPASS="\$PWD/askpass.sh"
 
+                                   git push origin main
+                                """
                             }
 
                         } else {
