@@ -194,7 +194,6 @@ pipeline {
                                         git push origin main
                                     '''
                                 }
-                            }
                         } else {
                             error("Manifest file '${manifestFile}' does not exist.")
                         }
@@ -204,3 +203,4 @@ pipeline {
             }
         }
     }
+}
