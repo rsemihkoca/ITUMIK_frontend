@@ -186,7 +186,7 @@ pipeline {
                         writeFile(file: manifestFile, text: manifestContent)
 
                         echo "Manifest file updated successfully."
-q
+
                         // Optional: Push changes back to the repository
                         dir(manifestRepoFolderName) {
                             withCredentials([sshUserPrivateKey(credentialsId: 'GITHUB_CREDENTIAL_ID', keyFileVariable: 'SSH_KEY')]) {
