@@ -164,10 +164,14 @@ pipeline {
                     def manifestFile = "${manifestRepoFolderName}/${manifestFolder}/frontend-application.yaml"
                     def newImage = "${env.AUTHOR_LOGIN}/${env.REPO_FOLDER_NAME.toLowerCase()}:${env.DOCKER_TAG_NAME}"
 
-                    // Clone the manifests repository
-                    echo "Cloning manifests repository: ${manifestRepoURL}"
-                    sh "git clone ${manifestRepoURL} ${manifestRepoFolderName}"
 
+
+                    // Set SSH Key for git
+                    withCredentials([sshUserPrivateKey(credentialsId: GITHUB_CREDENTIAL_ID, keyFileVariable: 'SSH_KEY')]) {
+                        sh """
+                            ssh-agent bash -c 'ssh-add ${SSH_KEY}; git clone ${manifestRepoURL}'
+                        """
+                    }
                     // Check if manifest file exists
                     if (fileExists(manifestFile)) {
                         echo "Updating manifest file with new image: ${newImage}"
@@ -204,7 +208,6 @@ pipeline {
                     } else {
                         error("Manifest file '${manifestFile}' does not exist.")
                     }
-
                 }
             }
         }
