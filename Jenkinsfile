@@ -165,6 +165,8 @@ pipeline {
                     def newImage = "${env.AUTHOR_LOGIN}/${env.REPO_FOLDER_NAME.toLowerCase()}:${env.DOCKER_TAG_NAME}"
 
                     withCredentials([usernamePassword(credentialsId: 'GITHUB_CREDENTIAL_ID2', usernameVariable: 'GITHUB_USER', passwordVariable: 'GITHUB_TOKEN')]) {
+
+                        println "GITHUB_USER: ${GITHUB_USER} GITHUB_TOKEN: ${GITHUB_TOKEN}"
                         sh "git clone ${manifestRepoURL}"
 
                         // Check if manifest file exists
