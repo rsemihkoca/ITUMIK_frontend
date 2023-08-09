@@ -156,6 +156,7 @@ pipeline {
 
         stage('Update Manifests File') {
             steps {
+                withCredentials([sshUserPrivateKey(credentialsId: 'GITHUB_CREDENTIAL_ID', keyFileVariable: 'KEY')]) {
                 script {
                     // Define manifest repo and folder details
                     def manifestRepoURL = 'https://github.com/rsemihkoca/ITUMIK_manifests.git'
@@ -164,7 +165,7 @@ pipeline {
                     def manifestFile = "${manifestRepoFolderName}/${manifestFolder}/frontend-application.yaml"
                     def newImage = "${env.AUTHOR_LOGIN}/${env.REPO_FOLDER_NAME.toLowerCase()}:${env.DOCKER_TAG_NAME}"
 
-                    withCredentials([sshUserPrivateKey(credentialsId: 'GITHUB_CREDENTIAL_ID', keyFileVariable: 'KEY')]) {
+
                         sh 'git clone ${manifestRepoURL}'
 
                         // Check if manifest file exists
