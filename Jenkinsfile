@@ -164,7 +164,7 @@ pipeline {
                     def manifestFile = "${manifestRepoFolderName}/${manifestFolder}/frontend-application.yaml"
                     def newImage = "${env.AUTHOR_LOGIN}/${env.REPO_FOLDER_NAME.toLowerCase()}:${env.DOCKER_TAG_NAME}"
 
-                    sshagent (credentials: ['GITHUB_CREDENTIAL_ID']) {
+                    withCredentials([sshUserPrivateKey(credentialsId: 'GITHUB_CREDENTIAL_ID', keyFileVariable: 'KEY')]) {
                         sh 'git clone ${manifestRepoURL}'
 
                         // Check if manifest file exists
@@ -187,13 +187,8 @@ pipeline {
                                     // Set SSH key for Git
                                     println ${SSH_KEY}
                                     sh '''
-                                        eval `ssh-agent -s`
-                                        export GIT_SSH_COMMAND='ssh -i ${SSH_KEY}'
-                                        eval 'ssh -T git@github.com'
-                                        git remote set-url origin git@github.com:''' + "${AUTHOR_LOGIN}/${manifestRepoFolderName}.git" + '''
+                                        git remote set-url origin ${manifestRepoURL}
                                         git remote -v
-                                        git config user.name ''' + "${AUTHOR_LOGIN}" + '''
-                                        git config user.email rsemihkoca@outlook.com
                                         git add .
                                         git commit -m "Update frontend-application.yaml with new image tag: ''' + "${newImage}" + '''"
                                         git push origin main
