@@ -184,7 +184,6 @@ pipeline {
 
                             // Optional: Push changes back to the repository
                             dir(manifestRepoFolderName) {
-                                #set remote url to the repo
                                 sh "git remote set-url origin ${manifestRepoURL}"
                                 sh "git remote -v"
                                 sh "git add ."
