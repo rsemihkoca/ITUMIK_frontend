@@ -164,53 +164,48 @@ pipeline {
                     def manifestFile = "${manifestRepoFolderName}/${manifestFolder}/frontend-application.yaml"
                     def newImage = "${env.AUTHOR_LOGIN}/${env.REPO_FOLDER_NAME.toLowerCase()}:${env.DOCKER_TAG_NAME}"
 
+                    sshagent (credentials: ['GITHUB_CREDENTIAL_ID']) {
+                        sh 'git clone ${manifestRepoURL}'
 
+                        // Check if manifest file exists
+                        if (fileExists(manifestFile)) {
+                            echo "Updating manifest file with new image: ${newImage}"
 
-                    // Set SSH Key for git
-                    withCredentials([sshUserPrivateKey(credentialsId: 'GITHUB_CREDENTIAL_ID', keyFileVariable: 'SSH_KEY')]) {
-                        sh """
-                            ssh-agent bash -c 'ssh-add ${SSH_KEY}; git clone ${manifestRepoURL}'
-                        """
-                    }
-                    // Check if manifest file exists
-                    if (fileExists(manifestFile)) {
-                        echo "Updating manifest file with new image: ${newImage}"
+                            // Read the manifest file
+                            def manifestContent = readFile(manifestFile)
 
-                        // Read the manifest file
-                        def manifestContent = readFile(manifestFile)
+                            // Replace the old image with the new image
+                            manifestContent = manifestContent.replaceAll("${env.AUTHOR_LOGIN}/${env.REPO_FOLDER_NAME.toLowerCase()}:v[0-9\\\\.]+", newImage)
 
-                        // Replace the old image with the new image
-                        manifestContent = manifestContent.replaceAll("${env.AUTHOR_LOGIN}/${env.REPO_FOLDER_NAME.toLowerCase()}:v[0-9\\\\.]+", newImage)
+                            // Write the updated content back to the file
+                            writeFile(file: manifestFile, text: manifestContent)
 
-                        // Write the updated content back to the file
-                        writeFile(file: manifestFile, text: manifestContent)
+                            echo "Manifest file updated successfully."
 
-                        echo "Manifest file updated successfully."
-
-                        // Optional: Push changes back to the repository
-                        dir(manifestRepoFolderName) {
-                            withCredentials([sshUserPrivateKey(credentialsId: 'GITHUB_CREDENTIAL_ID', keyFileVariable: 'SSH_KEY')]) {
-                                // Set SSH key for Git
-                                sh "echo ${SSH_KEY}"
-                                sh '''
-                                    eval `ssh-agent -s`
-                                    export GIT_SSH_COMMAND='ssh -i ${SSH_KEY}'
-                                    eval 'ssh -T git@github.com'
-                                    git remote set-url origin git@github.com:''' + "${AUTHOR_LOGIN}/${manifestRepoFolderName}.git" + '''
-                                    git remote -v
-                                    git config user.name ''' + "${AUTHOR_LOGIN}" + '''
-                                    git config user.email rsemihkoca@outlook.com
-                                    git add .
-                                    git commit -m "Update frontend-application.yaml with new image tag: ''' + "${newImage}" + '''"
-                                    git push origin main
-                                '''
+                            // Optional: Push changes back to the repository
+                            dir(manifestRepoFolderName) {
+                                    // Set SSH key for Git
+                                    println ${SSH_KEY}
+                                    sh '''
+                                        eval `ssh-agent -s`
+                                        export GIT_SSH_COMMAND='ssh -i ${SSH_KEY}'
+                                        eval 'ssh -T git@github.com'
+                                        git remote set-url origin git@github.com:''' + "${AUTHOR_LOGIN}/${manifestRepoFolderName}.git" + '''
+                                        git remote -v
+                                        git config user.name ''' + "${AUTHOR_LOGIN}" + '''
+                                        git config user.email rsemihkoca@outlook.com
+                                        git add .
+                                        git commit -m "Update frontend-application.yaml with new image tag: ''' + "${newImage}" + '''"
+                                        git push origin main
+                                    '''
+                                }
                             }
+                        } else {
+                            error("Manifest file '${manifestFile}' does not exist.")
                         }
-                    } else {
-                        error("Manifest file '${manifestFile}' does not exist.")
+
                     }
                 }
-            }
         }
     }
 }
