@@ -186,16 +186,16 @@ pipeline {
                         writeFile(file: manifestFile, text: manifestContent)
 
                         echo "Manifest file updated successfully."
-
+q
                         // Optional: Push changes back to the repository
                         dir(manifestRepoFolderName) {
                             withCredentials([sshUserPrivateKey(credentialsId: 'GITHUB_CREDENTIAL_ID', keyFileVariable: 'SSH_KEY')]) {
                                 // Set SSH key for Git
                                 sh '''
                                     eval `ssh-agent -s`
-                                    git remote -v
                                     export GIT_SSH_COMMAND='ssh -i ${SSH_KEY}'
                                     git remote set-url origin git@github.com:''' + "${AUTHOR_LOGIN}/${manifestRepoFolderName}.git" + '''
+                                    git remote -v
                                     git config user.name ''' + "${AUTHOR_LOGIN}" + '''
                                     git config user.email rsemihkoca@outlook.com
                                     git add .
