@@ -194,6 +194,7 @@ pipeline {
                                 sh '''
                                     eval `ssh-agent -s`
                                     export GIT_SSH_COMMAND='ssh -i ${SSH_KEY}'
+                                    eval 'ssh -T git@github.com'
                                     git remote set-url origin git@github.com:''' + "${AUTHOR_LOGIN}/${manifestRepoFolderName}.git" + '''
                                     git remote -v
                                     git config user.name ''' + "${AUTHOR_LOGIN}" + '''
