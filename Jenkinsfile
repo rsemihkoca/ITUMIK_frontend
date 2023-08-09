@@ -167,7 +167,7 @@ pipeline {
 
 
                     // Set SSH Key for git
-                    withCredentials([sshUserPrivateKey(credentialsId: GITHUB_CREDENTIAL_ID, keyFileVariable: 'SSH_KEY')]) {
+                    withCredentials([sshUserPrivateKey(credentialsId: 'GITHUB_CREDENTIAL_ID', keyFileVariable: 'SSH_KEY')]) {
                         sh """
                             ssh-agent bash -c 'ssh-add ${SSH_KEY}; git clone ${manifestRepoURL}'
                         """
