@@ -164,7 +164,7 @@ pipeline {
                     def manifestFile = "${manifestRepoFolderName}/${manifestFolder}/frontend-application.yaml"
                     def newImage = "${env.AUTHOR_LOGIN}/${env.REPO_FOLDER_NAME.toLowerCase()}:${env.DOCKER_TAG_NAME}"
 
-                    withCredentials([sshUserPrivateKey(credentialsId: 'GITHUB_CREDENTIAL_ID', keyFileVariable: 'KEY')]) {
+                    withCredentials([sshUserPrivateKey(credentialsId: 'GITHUB_CREDENTIAL_ID', keyFileVariable: 'GITHUB_TOKEN')]) {
                         sh "git clone ${manifestRepoURL}"
 
                         // Check if manifest file exists
@@ -190,7 +190,9 @@ pipeline {
                                 sh "git remote -v"
                                 sh "git add ."
                                 sh "git commit -m 'Update frontend-application.yaml with new image tag: ${newImage}'"
-                                sh "git push origin main"
+                                // sh "git push origin main"
+                                sh "git push https://rsemihkoca:${GITHUB_TOKEN}@github.com/rsemihkoca/ITUMIK_manifests.git main"
+
                             }
 
                         } else {
