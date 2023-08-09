@@ -184,14 +184,14 @@ pipeline {
 
                             // Optional: Push changes back to the repository
                             dir(manifestRepoFolderName) {
-                                    sh '''
-                                        git remote set-url origin ${manifestRepoURL}
-                                        git remote -v
-                                        git add .
-                                        git commit -m "Update frontend-application.yaml with new image tag: ''' + "${newImage}" + '''"
-                                        git push origin main
-                                    '''
-                                }
+                                #set remote url to the repo
+                                sh "git remote set-url origin ${manifestRepoURL}"
+                                sh "git remote -v"
+                                sh "git add ."
+                                sh "git commit -m 'Update frontend-application.yaml with new image tag: ${newImage}'"
+                                sh "git push origin main"
+                            }
+
                         } else {
                             error("Manifest file '${manifestFile}' does not exist.")
                         }
