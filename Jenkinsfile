@@ -197,7 +197,7 @@ pipeline {
                                    echo '#!/bin/sh' > askpass.sh
                                    echo 'echo \$GITHUB_TOKEN' >> askpass.sh
                                    chmod +x askpass.sh
-                                   export GIT_ASKPASS=\$PWD/askpass.sh
+                                   export GIT_ASKPASS="\$PWD/askpass.sh"
 
                                    git push origin main
                                 """
