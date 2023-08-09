@@ -191,6 +191,7 @@ pipeline {
                         dir(manifestRepoFolderName) {
                             withCredentials([sshUserPrivateKey(credentialsId: 'GITHUB_CREDENTIAL_ID', keyFileVariable: 'SSH_KEY')]) {
                                 // Set SSH key for Git
+                                sh "echo ${SSH_KEY}"
                                 sh '''
                                     eval `ssh-agent -s`
                                     export GIT_SSH_COMMAND='ssh -i ${SSH_KEY}'
