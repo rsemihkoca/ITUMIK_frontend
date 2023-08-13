@@ -1,8 +1,19 @@
 import { Table } from "..";
 import NewTable from "../Tables/Table";
 import { bookshelfFront, bookshelfSide, clock } from "../../constants/Images";
+import { QueryClient, useQuery } from "@tanstack/react-query";
 
 const Floor0 = () => {
+  //data fetching
+  const queryClient = new QueryClient()
+  const { isLoading, error, data } = useQuery({
+    queryKey: ['repoData'],
+    queryFn: () =>
+      fetch('https://api.github.com/repos/TanStack/query').then(
+        (res) => res.json(),
+      ),
+  })
+  if (isLoading) return 'Loading...'
   return (
     <div className="floor mx-4 rounded-xl relative  min-w-[240vw] sm:min-w-[1200px] my-8 sm:my-0">
       <div className="w-full wall z-10 h-[70px] rounded-t-xl sm:h-[88px] absolute top-0 left-0"></div>
@@ -45,11 +56,11 @@ const Floor0 = () => {
           </div>
         </div> */}
         <NewTable />
-        <Table />
-        <Table />
-        <Table />
-        <Table />
-        <Table />
+        <NewTable />
+        <NewTable />
+        <NewTable />
+        <NewTable />
+        <NewTable />
         <div className="flex justify-around items-center row-span-3">
           <div className="flex-col h-full py-8 justify-start relative flex">
             <img src={bookshelfSide} className="w-4 sm:w-5" />
@@ -73,37 +84,37 @@ const Floor0 = () => {
             />
           </div>
         </div>
-        <Table />
-        <Table />
-        <Table />
-        <Table />
-        <Table />
-        <Table />
-        <Table />
-        <Table />
-        <Table />
-        <Table />
-        <Table />
-        <Table />
-        <Table />
-        <Table />
-        <Table className="col-start-2" />
-        <Table />
-        <Table />
-        <Table />
-        <Table />
-        <Table />
-        <Table />
-        <Table />
-        <Table />
+        <NewTable />
+        <NewTable />
+        <NewTable />
+        <NewTable />
+        <NewTable />
+        <NewTable />
+        <NewTable />
+        <NewTable />
+        <NewTable />
+        <NewTable />
+        <NewTable />
+        <NewTable />
+        <NewTable />
+        <NewTable />
+        <NewTable className="col-start-2" />
+        <NewTable />
+        <NewTable />
+        <NewTable />
+        <NewTable />
+        <NewTable />
+        <NewTable />
+        <NewTable />
+        <NewTable />
         <Table doubleChair className="col-start-4" />
         <Table doubleChair />
         <Table doubleChair />
-        <Table />
-        <Table />
-        <Table />
-        <Table />
-        <Table />
+        <NewTable />
+        <NewTable />
+        <NewTable />
+        <NewTable />
+        <NewTable />
       </div>
     </div>
   );
