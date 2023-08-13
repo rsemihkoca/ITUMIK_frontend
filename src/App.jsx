@@ -2,6 +2,8 @@ import "./index.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Floors, MainPage } from "./pages";
 
+import { Table } from "./components/Tables";
+
 function App() {
   return (
     <Router>
@@ -10,6 +12,7 @@ function App() {
         <Route path={"/floors/:id"} element={<Floors />} />
       </Routes>
     </Router>
+    // <Table />
   );
 }
 

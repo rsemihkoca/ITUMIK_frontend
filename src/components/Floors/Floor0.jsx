@@ -1,4 +1,5 @@
 import { Table } from "..";
+import NewTable from "../Tables/Table";
 import { bookshelfFront, bookshelfSide, clock } from "../../constants/Images";
 
 const Floor0 = () => {
@@ -43,7 +44,7 @@ const Floor0 = () => {
             <img src={table} className="absolute top-12" />
           </div>
         </div> */}
-        <Table />
+        <NewTable />
         <Table />
         <Table />
         <Table />
