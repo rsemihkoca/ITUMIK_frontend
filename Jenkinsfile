@@ -190,7 +190,7 @@ pipeline {
                                 sh "git remote set-url origin ${manifestRepoURL}"
                                 sh "git remote -v"
                                 sh "git add ."
-                                sh "git commit -m '${newImage}: Update frontend-application.yaml with new image tag'"
+                                sh "git commit -m '${newImage}'"
 
                                 // Use GIT_ASKPASS to provide the token instead of embedding in URL
                                 sh """
