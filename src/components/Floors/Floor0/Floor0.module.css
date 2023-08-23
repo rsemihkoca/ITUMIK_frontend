@@ -1,0 +1,144 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 1280px; /* Diggad ed bebeim */
+}
+
+.wall_container {
+  position: relative;
+  overflow: hidden;
+  width: 1280px;
+  height: 188px;
+}
+
+.wall {
+  position: absolute;
+  z-index: 1;
+  min-width: 1280px;
+}
+
+.bg_image {
+  position: absolute;
+  min-width: 1179px;
+  margin-top: -8px;
+  margin-left: 80px;
+  padding-top: 22px;
+}
+
+.floor_container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  width: 1280px; /* Diggad ed bebeim */
+  height: 492px;
+  background-image: url("../../../assets//images/Floor/Zemin.png");
+  background-repeat: no-repeat;
+}
+
+.elements_container {
+  display: flex;
+  align-items: flex-end;
+  margin-top: -132px;
+  margin-left: 32px;
+}
+
+.plant {
+  margin-bottom: 24px;
+}
+
+.column {
+  width: 49px;
+  height: 180px;
+}
+
+#col1 {
+  margin-left: 84px;
+}
+
+#col2 {
+  margin-left: 234px;
+}
+
+.bookshelf {
+  width: 82px;
+  height: 83px;
+  margin-bottom: 24px;
+  margin-left: 128px;
+}
+
+#col3 {
+  margin-left: 130px;
+}
+
+#col4 {
+  margin-left: 256px;
+}
+
+.tables_container {
+  z-index: 3;
+  margin-top: -12px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tables_row {
+  display: flex;
+  margin-left: 32px;
+}
+
+.srt1 {
+  margin-left: 18px;
+}
+
+.srt2 {
+  margin-left: 58px;
+}
+
+.srt4 {
+  margin-left: 36px;
+}
+
+.srt7 {
+  margin-left: 24px;
+}
+
+@media (max-width: 1280px) {
+  .container {
+    width: 1024px !important;
+  }
+
+  .wall_container {
+    width: 1024px !important;
+  }
+
+  .wall {
+    min-width: 1280px !important;
+  }
+
+  #col4 {
+    display: none;
+  }
+
+  .floor_container {
+    width: 1024px !important;
+    height: 393.6px;
+  }
+
+  .srt1 {
+    margin-left: 36px;
+  }
+
+  .srt2 {
+    margin-left: 24px;
+  }
+
+  .srt4 {
+    margin-left: 24px;
+  }
+
+  .srt7 {
+    margin-left: 24px;
+  }
+}

@@ -163,7 +163,7 @@ const FloorsLayout = ({ children }) => {
                 </button>
               </Link>
             </div>
-            <div className="sm:rounded-tr-lg sm:rounded-b-lg overflow-auto  bg-[#002855]/[0.5] sm:pt-8 sm:pb-8">
+            <div className="lg:flex lg:items-center lg:justify-center sm:rounded-tr-lg sm:rounded-b-lg overflow-auto  bg-[#002855]/[0.5] sm:pt-8 sm:pb-8">
               {children}
             </div>
           </div>

@@ -18,3 +18,25 @@
   transform: scaleX(-1);
   margin-left: 60px;
 }
+
+@media (max-width: 1280px) {
+  .container {
+    width: 96px;
+    height: 96px;
+  }
+
+  .top_chair {
+    width: 48px;
+    height: 56px;
+  }
+
+  .bottom_chair {
+    width: 48px;
+    height: 56px;
+    margin-top: 34px;
+  }
+
+  .opposite {
+    margin-left: 48px;
+  }
+}
