@@ -12,23 +12,26 @@ import {
 } from "../../../constants/Images";
 
 import { Table } from "../../";
+import { data } from "../../../constants/Mock";
 
 import styles from "./Floor0.module.css";
 
 const Floor0 = () => {
-  // Fetch Floor Info
-  const queryClient = new QueryClient();
-  const { isLoading, error, data } = useQuery({
-    queryKey: ["repoData"],
-    queryFn: async () =>
-      await fetch("http://35.233.62.213:32277/get_floor/?floor=Floor00").then(
-        async (res) => await res.json()
-      ),
-  });
+  // // Fetch Floor Info
+  // const queryClient = new QueryClient();
+  // const { isLoading, error, data } = useQuery({
+  //   queryKey: ["repoData"],
+  //   queryFn: async () =>
+  //     await fetch("http://35.233.62.213:32277/get_floor/?floor=Floor00").then(
+  //       async (res) => await res.json()
+  //     ),
+  // });
 
-  if (isLoading) return "Loading...";
+  // if (isLoading) return "Loading...";
 
-  if (error) console.log("Hata: ", error);
+  // if (error) console.log("Hata: ", error);
+
+  console.log("Data: ", data);
 
   return (
     <div className={styles.container}>
@@ -47,9 +50,9 @@ const Floor0 = () => {
         </div>
         <div className={styles.tables_container}>
           <div className={styles.tables_row}>
-            <Table className={styles.srt1} data={data && data["data"][0]} />
-            <Table className={styles.srt2} />
-            <Table />
+            <Table className={styles.srt1} data={data && data[0]} />
+            <Table className={styles.srt2} data={data && data[1]} />
+            <Table data={data && data[2]} />
             <Table className={styles.srt4} />
             <Table />
             <Table />
@@ -58,9 +61,9 @@ const Floor0 = () => {
             <Table />
           </div>
           <div className={styles.tables_row}>
-            <Table className={styles.srt1} />
-            <Table className={styles.srt2} />
-            <Table />
+            <Table className={styles.srt1} data={data && data[9]} />
+            <Table className={styles.srt2} data={data && data[10]} />
+            <Table data={data && data[11]} />
             <Table className={styles.srt4} />
             <Table />
             <Table />
