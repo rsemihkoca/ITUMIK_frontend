@@ -20,13 +20,15 @@ const Floor0 = () => {
   const queryClient = new QueryClient();
   const { isLoading, error, data } = useQuery({
     queryKey: ["repoData"],
-    queryFn: () =>
-      fetch("http://35.233.62.213:32277/get_floor/?floor=Floor00").then((res) =>
-        res.json()
+    queryFn: async () =>
+      await fetch("http://35.233.62.213:32277/get_floor/?floor=Floor00").then(
+        async (res) => await res.json()
       ),
   });
 
   if (isLoading) return "Loading...";
+
+  if (error) console.log("Hata: ", error);
 
   return (
     <div className={styles.container}>
@@ -45,7 +47,7 @@ const Floor0 = () => {
         </div>
         <div className={styles.tables_container}>
           <div className={styles.tables_row}>
-            <Table className={styles.srt1} data={data["data"][0]} />
+            <Table className={styles.srt1} data={data && data["data"][0]} />
             <Table className={styles.srt2} />
             <Table />
             <Table className={styles.srt4} />
