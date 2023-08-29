@@ -209,9 +209,9 @@ pipeline {
                             error("Manifest file '${manifestFile}' does not exist.")
                         }
 
-                    }
-                }
-            }
-        }
-    }
-}
+                    }// credentials
+                }// script
+            }// steps
+        }// stage
+    }// stages
+}// pipeline
