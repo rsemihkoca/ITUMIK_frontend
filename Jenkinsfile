@@ -48,7 +48,8 @@ pipeline {
 
                     env.RELEASE_URL = json.release.url
                     env.CLONE_URL = json.repository.clone_url
-                    env.AUTHOR_LOGIN = json.release.author.login
+                    // env.AUTHOR_LOGIN = json.release.author.login
+                    env.AUTHOR_LOGIN = 'rsemihkoca'
                     env.REPO_FULL_NAME = json.repository.full_name
                     env.BRANCH_NAME = json.release.target_commitish
                     env.REPO_FOLDER_NAME = json.repository.name
