@@ -28,6 +28,8 @@ const Floor0 = () => {
 
   if (isLoading) return "Loading...";
 
+  if (error) return console.log("Hata: ", error);
+
   return (
     <div className={styles.container}>
       <div className={styles.wall_container}>
@@ -45,7 +47,7 @@ const Floor0 = () => {
         </div>
         <div className={styles.tables_container}>
           <div className={styles.tables_row}>
-            <Table className={styles.srt1} data={data["data"][0]} />
+            <Table className={styles.srt1} data={data && data["data"][0]} />
             <Table className={styles.srt2} />
             <Table />
             <Table className={styles.srt4} />
